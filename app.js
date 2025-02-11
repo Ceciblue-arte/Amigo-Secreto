@@ -9,13 +9,19 @@ console.log (typeof (capturaAmigo));
 function agregarAmigo(){
     let capturaAmigo = document.getElementById("amigo");
     let nombresDeAmigos = capturaAmigo.ariaValueMax.trim();
-    console.log (nombresDeAmigos)
+    console.log (capturaAmigo)
     console.log (typeof (capturaAmigo));
 
     if (capturaAmigo="") {
     alert ("Por favor, inserte un nombre.");
     return;
 }
+//Comprobar que el nombre no este duplicado
+if (amigos.includes(nombresDeAmigos)) {
+    alert(`Se ha duplicado el nombre ${nombresDeAmigos} de tu lista de Amigos`)
+    return;
+}
+
 //Agregar a un amigo a la lista
 amigos.push(nombresDeAmigos);
 
@@ -31,19 +37,29 @@ listaActualizada();
 function listaActualizada() {
     let elementoHTML = document.querySelector("listaAmigos");
     elementoHTML.innerHTML = "";
-    return;
-}
 
+    //Interar sobre la lista con for  y craer elementos li
+    for (let index = 0; index < amigos.length; index++) {
+        const li = document.createElement("li");
+        li.textContent =amigos(index);
+        amigos.appendChild(li);
+
+        
+    }
+
+}
 
 
 //funcion para sellecionar aleatoriamente a un amigo
 function sortearAmigo() {
-
-    
+ //validar que no este repetido el nombre
+ if (amigos.length === 0) {
+    alert("Y no me queje")//Interar sobre
+ }
 }
 
 
-console.log (amigos[amigos.length-1]);
+console.log (amigos[amigos.length]);
 
 
 
